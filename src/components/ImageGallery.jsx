@@ -1456,7 +1456,7 @@ export default class ImageGallery extends React.Component {
       <div
         ref={this.imageGallery}
         className={igClass}
-        aria-live="polite"
+        // aria-live="polite"
       >
         <div className={igContentClass}>
           {(thumbnailPosition === 'bottom' || thumbnailPosition === 'right') && slideWrapper}
