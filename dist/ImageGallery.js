@@ -559,6 +559,7 @@ var ImageGallery = /*#__PURE__*/function (_React$Component) {
         var thumbnailClass = item.thumbnailClass ? " ".concat(item.thumbnailClass) : '';
         var handleRenderItem = item.renderItem || renderItem || _this4.renderItem;
         var handleRenderThumbInner = item.renderThumbInner || renderThumbInner || _this4.renderThumbInner;
+        console.log(alignment);
         var showItem = !lazyLoad || alignment || _this4.lazyLoaded[index];
 
         if (showItem && lazyLoad && !_this4.lazyLoaded[index]) {
@@ -568,7 +569,8 @@ var ImageGallery = /*#__PURE__*/function (_React$Component) {
         var slideStyle = _this4.getSlideStyle(index);
 
         var slide = /*#__PURE__*/_react.default.createElement("div", {
-          // aria-label={`Go to Slide ${index + 1}`}
+          "aria-label": "Slide ".concat(index + 1),
+          "aria-hidden": alignment.replace(/ /g, '') === 'center' ? undefined : 'true',
           key: "slide-".concat(item.original, "-").concat(index),
           tabIndex: "-1",
           className: "image-gallery-slide ".concat(alignment, " ").concat(originalClass),
@@ -580,8 +582,7 @@ var ImageGallery = /*#__PURE__*/function (_React$Component) {
           onTouchStart: onTouchStart,
           onMouseOver: onMouseOver,
           onFocus: onMouseOver,
-          onMouseLeave: onMouseLeave,
-          role: "button"
+          onMouseLeave: onMouseLeave
         }, showItem ? handleRenderItem(item) : /*#__PURE__*/_react.default.createElement("div", {
           style: {
             height: '100%'
@@ -1357,7 +1358,7 @@ var ImageGallery = /*#__PURE__*/function (_React$Component) {
       var onImageError = this.props.onImageError;
       var handleImageError = onImageError || this.handleImageError;
       var itemSrc = isFullscreen ? item.fullscreen || item.original : item.original;
-      return /*#__PURE__*/_react.default.createElement("div", null, item.imageSet ? /*#__PURE__*/_react.default.createElement("picture", {
+      return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, item.imageSet ? /*#__PURE__*/_react.default.createElement("picture", {
         onLoad: function onLoad(event) {
           return _this10.handleImageLoaded(event, item);
         },
@@ -1450,7 +1451,8 @@ var ImageGallery = /*#__PURE__*/function (_React$Component) {
         onSwiping: this.handleSwiping,
         onSwiped: this.handleOnSwiped
       }, /*#__PURE__*/_react.default.createElement("div", {
-        className: "image-gallery-slides"
+        className: "image-gallery-slides",
+        "aria-live": "polite"
       }, slides))) : /*#__PURE__*/_react.default.createElement("div", {
         className: "image-gallery-slides"
       }, slides), showPlayButton && renderPlayPauseButton(this.togglePlay, isPlaying), showBullets && /*#__PURE__*/_react.default.createElement("div", {
@@ -1480,8 +1482,7 @@ var ImageGallery = /*#__PURE__*/function (_React$Component) {
       });
       return /*#__PURE__*/_react.default.createElement("div", {
         ref: this.imageGallery,
-        className: igClass,
-        "aria-live": "polite"
+        className: igClass
       }, /*#__PURE__*/_react.default.createElement("div", {
         className: igContentClass
       }, (thumbnailPosition === 'bottom' || thumbnailPosition === 'right') && slideWrapper, showThumbnails && /*#__PURE__*/_react.default.createElement("div", {
