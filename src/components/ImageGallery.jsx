@@ -616,7 +616,6 @@ export default class ImageGallery extends React.Component {
       const handleRenderItem = item.renderItem || renderItem || this.renderItem;
       const handleRenderThumbInner = item.renderThumbInner
         || renderThumbInner || this.renderThumbInner;
-      console.log(alignment)
       const showItem = !lazyLoad || alignment || this.lazyLoaded[index];
       if (showItem && lazyLoad && !this.lazyLoaded[index]) {
         this.lazyLoaded[index] = true;

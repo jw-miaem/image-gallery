@@ -559,7 +559,6 @@ var ImageGallery = /*#__PURE__*/function (_React$Component) {
         var thumbnailClass = item.thumbnailClass ? " ".concat(item.thumbnailClass) : '';
         var handleRenderItem = item.renderItem || renderItem || _this4.renderItem;
         var handleRenderThumbInner = item.renderThumbInner || renderThumbInner || _this4.renderThumbInner;
-        console.log(alignment);
         var showItem = !lazyLoad || alignment || _this4.lazyLoaded[index];
 
         if (showItem && lazyLoad && !_this4.lazyLoaded[index]) {
