@@ -1,6 +1,8 @@
 {
-  "name": "my-app",
+  "name": "image-gallery",
   "version": "0.1.0",
+  "description": "Fork of react carousel image gallery component with thumbnail and mobile support",
+  "main": "./build/image-gallery.js",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
