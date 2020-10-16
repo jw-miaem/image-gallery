@@ -213,6 +213,7 @@ class App extends React.Component {
           slideInterval={parseInt(this.state.slideInterval)}
           slideOnThumbnailOver={this.state.slideOnThumbnailOver}
           additionalClass="app-image-gallery"
+          renderCustomControls={() => <div>Hello</div>}
         />
 
         <div className='app-sandbox'>

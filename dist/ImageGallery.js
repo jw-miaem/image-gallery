@@ -1482,12 +1482,12 @@ var ImageGallery = /*#__PURE__*/function (_React$Component) {
         ref: this.imageGallery,
         className: igClass,
         "aria-live": "polite"
-      }, renderCustomControls && renderCustomControls(), /*#__PURE__*/_react.default.createElement("div", {
+      }, /*#__PURE__*/_react.default.createElement("div", {
         className: igContentClass
       }, (thumbnailPosition === 'bottom' || thumbnailPosition === 'right') && slideWrapper, showThumbnails && /*#__PURE__*/_react.default.createElement("div", {
         className: thumbnailWrapperClass,
         style: this.getThumbnailBarHeight()
-      }, /*#__PURE__*/_react.default.createElement("div", {
+      }, renderCustomControls && renderCustomControls(), /*#__PURE__*/_react.default.createElement("div", {
         className: "image-gallery-thumbnails",
         ref: this.thumbnailsWrapper
       }, /*#__PURE__*/_react.default.createElement("div", {

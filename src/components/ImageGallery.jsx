@@ -1384,7 +1384,6 @@ export default class ImageGallery extends React.Component {
 
     const slideWrapper = (
       <div ref={this.imageGallerySlideWrapper} className={slideWrapperClass}>
-        {/*renderCustomControls && renderCustomControls()*/}
         {
           this.canSlide() ? (
             <React.Fragment>
@@ -1459,7 +1458,6 @@ export default class ImageGallery extends React.Component {
         className={igClass}
         aria-live="polite"
       >
-        {renderCustomControls && renderCustomControls()}
         <div className={igContentClass}>
           {(thumbnailPosition === 'bottom' || thumbnailPosition === 'right') && slideWrapper}
           {
@@ -1468,6 +1466,7 @@ export default class ImageGallery extends React.Component {
                 className={thumbnailWrapperClass}
                 style={this.getThumbnailBarHeight()}
               >
+                {renderCustomControls && renderCustomControls()}
                 <div
                   className="image-gallery-thumbnails"
                   ref={this.thumbnailsWrapper}
