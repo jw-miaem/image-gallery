@@ -616,7 +616,7 @@ export default class ImageGallery extends React.Component {
       const handleRenderItem = item.renderItem || renderItem || this.renderItem;
       const handleRenderThumbInner = item.renderThumbInner
         || renderThumbInner || this.renderThumbInner;
-
+      console.log(alignment)
       const showItem = !lazyLoad || alignment || this.lazyLoaded[index];
       if (showItem && lazyLoad && !this.lazyLoaded[index]) {
         this.lazyLoaded[index] = true;
@@ -626,7 +626,8 @@ export default class ImageGallery extends React.Component {
 
       const slide = (
         <div
-          // aria-label={`Go to Slide ${index + 1}`}
+          aria-label={`Slide ${index + 1}`}
+          aria-hidden={alignment.replace(/ /g, '') === 'center' ? undefined : 'true'}
           key={`slide-${item.original}-${index}`}
           tabIndex="-1"
           className={`image-gallery-slide ${alignment} ${originalClass}`}
@@ -639,7 +640,6 @@ export default class ImageGallery extends React.Component {
           onMouseOver={onMouseOver}
           onFocus={onMouseOver}
           onMouseLeave={onMouseLeave}
-          role="button"
         >
           {showItem ? handleRenderItem(item) : <div style={{ height: '100%' }} />}
         </div>
@@ -1275,7 +1275,7 @@ export default class ImageGallery extends React.Component {
     const itemSrc = isFullscreen ? (item.fullscreen || item.original) : item.original;
 
     return (
-      <div>
+      <React.Fragment>
         {
           item.imageSet ? (
             <picture
@@ -1319,7 +1319,7 @@ export default class ImageGallery extends React.Component {
             </span>
           )
         }
-      </div>
+      </React.Fragment>
     );
   }
 
@@ -1401,7 +1401,7 @@ export default class ImageGallery extends React.Component {
                 onSwiping={this.handleSwiping}
                 onSwiped={this.handleOnSwiped}
               >
-                <div className="image-gallery-slides">
+                <div className="image-gallery-slides" aria-live="polite">
                   {slides}
                 </div>
               </Swipeable>
@@ -1456,7 +1456,6 @@ export default class ImageGallery extends React.Component {
       <div
         ref={this.imageGallery}
         className={igClass}
-        // aria-live="polite"
       >
         <div className={igContentClass}>
           {(thumbnailPosition === 'bottom' || thumbnailPosition === 'right') && slideWrapper}

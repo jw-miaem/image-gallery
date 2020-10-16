@@ -54,6 +54,7 @@ class App extends React.Component {
         original: `${PREFIX_URL}1.jpg`,
         thumbnail: `${PREFIX_URL}1t.jpg`,
         originalClass: 'featured-slide',
+        originalAlt: 'test',
         thumbnailClass: 'featured-thumb',
         description: 'Custom class for slides & thumbnails'
       },
