@@ -1358,7 +1358,7 @@ var ImageGallery = /*#__PURE__*/function (_React$Component) {
       var onImageError = this.props.onImageError;
       var handleImageError = onImageError || this.handleImageError;
       var itemSrc = isFullscreen ? item.fullscreen || item.original : item.original;
-      return /*#__PURE__*/_react.default.createElement("div", null, item.imageSet ? /*#__PURE__*/_react.default.createElement("picture", {
+      return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, item.imageSet ? /*#__PURE__*/_react.default.createElement("picture", {
         onLoad: function onLoad(event) {
           return _this10.handleImageLoaded(event, item);
         },

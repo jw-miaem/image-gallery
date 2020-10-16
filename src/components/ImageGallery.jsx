@@ -1275,7 +1275,7 @@ export default class ImageGallery extends React.Component {
     const itemSrc = isFullscreen ? (item.fullscreen || item.original) : item.original;
 
     return (
-      <div>
+      <React.Fragment>
         {
           item.imageSet ? (
             <picture
@@ -1319,7 +1319,7 @@ export default class ImageGallery extends React.Component {
             </span>
           )
         }
-      </div>
+      </React.Fragment>
     );
   }
 
