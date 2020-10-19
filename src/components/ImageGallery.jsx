@@ -99,6 +99,7 @@ export default class ImageGallery extends React.Component {
     onThumbnailError: func,
     onThumbnailClick: func,
     renderCustomControls: func,
+    renderPager: func,
     renderLeftNav: func,
     renderRightNav: func,
     renderPlayPauseButton: func,
@@ -154,6 +155,7 @@ export default class ImageGallery extends React.Component {
     onThumbnailError: null,
     onThumbnailClick: null,
     renderCustomControls: null,
+    renderPager: null,
     renderThumbInner: null,
     renderItem: null,
     slideInterval: 3000,
@@ -1362,6 +1364,7 @@ export default class ImageGallery extends React.Component {
       thumbnailPosition,
       renderFullscreenButton,
       renderCustomControls,
+      renderPager,
       renderLeftNav,
       renderRightNav,
       showBullets,
@@ -1383,6 +1386,7 @@ export default class ImageGallery extends React.Component {
 
     const slideWrapper = (
       <div ref={this.imageGallerySlideWrapper} className={slideWrapperClass}>
+        {renderCustomControls && renderCustomControls()}
         {
           this.canSlide() ? (
             <React.Fragment>
@@ -1464,7 +1468,7 @@ export default class ImageGallery extends React.Component {
                 className={thumbnailWrapperClass}
                 style={this.getThumbnailBarHeight()}
               >
-                {renderCustomControls && renderCustomControls()}
+                {renderPager && renderPager()}
                 <div
                   className="image-gallery-thumbnails"
                   ref={this.thumbnailsWrapper}

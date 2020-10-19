@@ -1421,6 +1421,7 @@ var ImageGallery = /*#__PURE__*/function (_React$Component) {
           thumbnailPosition = _this$props16.thumbnailPosition,
           renderFullscreenButton = _this$props16.renderFullscreenButton,
           renderCustomControls = _this$props16.renderCustomControls,
+          renderPager = _this$props16.renderPager,
           renderLeftNav = _this$props16.renderLeftNav,
           renderRightNav = _this$props16.renderRightNav,
           showBullets = _this$props16.showBullets,
@@ -1444,7 +1445,7 @@ var ImageGallery = /*#__PURE__*/function (_React$Component) {
       var slideWrapper = /*#__PURE__*/_react.default.createElement("div", {
         ref: this.imageGallerySlideWrapper,
         className: slideWrapperClass
-      }, this.canSlide() ? /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, showNav && /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, renderLeftNav(this.slideLeft, !this.canSlideLeft()), renderRightNav(this.slideRight, !this.canSlideRight())), /*#__PURE__*/_react.default.createElement(_reactSwipeable.Swipeable, {
+      }, renderCustomControls && renderCustomControls(), this.canSlide() ? /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, showNav && /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, renderLeftNav(this.slideLeft, !this.canSlideLeft()), renderRightNav(this.slideRight, !this.canSlideRight())), /*#__PURE__*/_react.default.createElement(_reactSwipeable.Swipeable, {
         className: "image-gallery-swipe",
         delta: 0,
         onSwiping: this.handleSwiping,
@@ -1487,7 +1488,7 @@ var ImageGallery = /*#__PURE__*/function (_React$Component) {
       }, (thumbnailPosition === 'bottom' || thumbnailPosition === 'right') && slideWrapper, showThumbnails && /*#__PURE__*/_react.default.createElement("div", {
         className: thumbnailWrapperClass,
         style: this.getThumbnailBarHeight()
-      }, renderCustomControls && renderCustomControls(), /*#__PURE__*/_react.default.createElement("div", {
+      }, renderPager && renderPager(), /*#__PURE__*/_react.default.createElement("div", {
         className: "image-gallery-thumbnails",
         ref: this.thumbnailsWrapper
       }, /*#__PURE__*/_react.default.createElement("div", {
@@ -1565,6 +1566,7 @@ ImageGallery.propTypes = {
   onThumbnailError: _propTypes.func,
   onThumbnailClick: _propTypes.func,
   renderCustomControls: _propTypes.func,
+  renderPager: _propTypes.func,
   renderLeftNav: _propTypes.func,
   renderRightNav: _propTypes.func,
   renderPlayPauseButton: _propTypes.func,
@@ -1619,6 +1621,7 @@ ImageGallery.defaultProps = {
   onThumbnailError: null,
   onThumbnailClick: null,
   renderCustomControls: null,
+  renderPager: null,
   renderThumbInner: null,
   renderItem: null,
   slideInterval: 3000,
